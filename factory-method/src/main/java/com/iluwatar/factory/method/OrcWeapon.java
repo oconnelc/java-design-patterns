@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.factory.method;
 
 /**
@@ -27,7 +28,7 @@ package com.iluwatar.factory.method;
  */
 public class OrcWeapon implements Weapon {
 
-  private WeaponType weaponType;
+  private final WeaponType weaponType;
 
   public OrcWeapon(WeaponType weaponType) {
     this.weaponType = weaponType;

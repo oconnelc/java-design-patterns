@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,25 +20,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.queue.load.leveling;
 
-import org.junit.jupiter.api.Test;
+package com.iluwatar.queue.load.leveling;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * 
  * Test case for creating and checking the Message.
- * 
  */
 public class MessageTest {
-  
+
   @Test
   public void messageTest() {
-    
+
     // Parameterized constructor test.
-    String testMsg = "Message Test";
-    Message msg = new Message(testMsg);
+    var testMsg = "Message Test";
+    var msg = new Message(testMsg);
     assertEquals(testMsg, msg.getMsg());
   }
 }

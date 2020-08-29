@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,28 +20,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package domainapp.fixture.scenarios;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import com.google.common.collect.Lists;
-
-import org.apache.isis.applib.fixturescripts.FixtureScript;
-
 import domainapp.dom.modules.simple.SimpleObject;
 import domainapp.fixture.modules.simple.SimpleObjectCreate;
 import domainapp.fixture.modules.simple.SimpleObjectsTearDown;
+import java.util.List;
+import org.apache.isis.applib.fixturescripts.FixtureScript;
 
 
 /**
- * Create a bunch of simple Objects
+ * Create a bunch of simple Objects.
  */
 public class RecreateSimpleObjects extends FixtureScript {
 
-  public final List<String> names = Collections.unmodifiableList(Arrays.asList("Foo", "Bar", "Baz",
-      "Frodo", "Froyo", "Fizz", "Bip", "Bop", "Bang", "Boo"));
+  public final List<String> names = List.of(
+      "Foo",
+      "Bar",
+      "Baz",
+      "Frodo",
+      "Froyo",
+      "Fizz",
+      "Bip",
+      "Bop",
+      "Bang",
+      "Boo"
+  );
 
   // region > number (optional input)
   private Integer number;
@@ -80,7 +86,7 @@ public class RecreateSimpleObjects extends FixtureScript {
   protected void execute(final ExecutionContext ec) {
 
     // defaults
-    final int paramNumber = defaultParam("number", ec, 3);
+    final var paramNumber = defaultParam("number", ec, 3);
 
     // validate
     if (paramNumber < 0 || paramNumber > names.size()) {
@@ -93,8 +99,8 @@ public class RecreateSimpleObjects extends FixtureScript {
     //
     ec.executeChild(this, new SimpleObjectsTearDown());
 
-    for (int i = 0; i < paramNumber; i++) {
-      final SimpleObjectCreate fs = new SimpleObjectCreate().setName(names.get(i));
+    for (var i = 0; i < paramNumber; i++) {
+      final var fs = new SimpleObjectCreate().setName(names.get(i));
       ec.executeChild(this, fs.getName(), fs);
       simpleObjects.add(fs.getSimpleObject());
     }

@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package domainapp.integtests.specglue.modules.simple;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -27,9 +28,7 @@ import static org.junit.Assert.assertThat;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
-import domainapp.dom.modules.simple.SimpleObject;
 import domainapp.dom.modules.simple.SimpleObjects;
-import java.util.List;
 import java.util.UUID;
 import org.apache.isis.core.specsupport.specs.CukeGlueAbstract;
 
@@ -39,9 +38,9 @@ import org.apache.isis.core.specsupport.specs.CukeGlueAbstract;
 public class SimpleObjectGlue extends CukeGlueAbstract {
 
   @Given("^there are.* (\\d+) simple objects$")
-  public void thereAreNumSimpleObjects(int n) throws Throwable {
+  public void thereAreNumSimpleObjects(int n) {
     try {
-      final List<SimpleObject> findAll = service(SimpleObjects.class).listAll();
+      final var findAll = service(SimpleObjects.class).listAll();
       assertThat(findAll.size(), is(n));
       putVar("list", "all", findAll);
 
@@ -51,7 +50,7 @@ public class SimpleObjectGlue extends CukeGlueAbstract {
   }
 
   @When("^I create a new simple object$")
-  public void createNewSimpleObject() throws Throwable {
+  public void createNewSimpleObject() {
     service(SimpleObjects.class).create(UUID.randomUUID().toString());
   }
 

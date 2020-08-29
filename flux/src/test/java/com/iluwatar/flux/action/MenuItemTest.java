@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,12 +20,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.flux.action;
 
-import org.junit.jupiter.api.Test;
+package com.iluwatar.flux.action;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Date: 12/12/15 - 10:15 PM
@@ -35,9 +36,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class MenuItemTest {
 
   @Test
-  public void testToString() throws Exception {
-    for (final MenuItem menuItem : MenuItem.values()) {
-      final String toString = menuItem.toString();
+  public void testToString() {
+    for (final var menuItem : MenuItem.values()) {
+      final var toString = menuItem.toString();
       assertNotNull(toString);
       assertFalse(toString.trim().isEmpty());
     }

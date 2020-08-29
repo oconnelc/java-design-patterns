@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,18 +20,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.model.view.controller;
 
 /**
- * 
- * Nourishment enumeration
- *
+ * Nourishment enumeration.
  */
 public enum Nourishment {
+  SATURATED("saturated"),
+  HUNGRY("hungry"),
+  STARVING("starving");
 
-  SATURATED("saturated"), HUNGRY("hungry"), STARVING("starving");
-
-  private String title;
+  private final String title;
 
   Nourishment(String title) {
     this.title = title;

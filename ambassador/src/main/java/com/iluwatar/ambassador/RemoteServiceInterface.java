@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,13 +20,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.ambassador;
 
 /**
  * Interface shared by ({@link RemoteService}) and ({@link ServiceAmbassador}).
  */
 interface RemoteServiceInterface {
-  int FAILURE = -1;
 
-  long doRemoteFunction(int value) throws Exception;
+  long doRemoteFunction(int value);
 }

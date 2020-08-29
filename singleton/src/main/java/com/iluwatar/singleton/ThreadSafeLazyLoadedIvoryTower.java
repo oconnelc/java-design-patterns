@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,21 +20,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.singleton;
 
 /**
- * Thread-safe Singleton class. The instance is lazily initialized and thus needs synchronization
- * mechanism.
+ * <p>Thread-safe Singleton class. The instance is lazily initialized and thus needs synchronization
+ * mechanism.</p>
  *
- * Note: if created by reflection then a singleton will not be created but multiple options in the
- * same classloader
  */
 public final class ThreadSafeLazyLoadedIvoryTower {
 
-  private static ThreadSafeLazyLoadedIvoryTower instance;
+  private static volatile ThreadSafeLazyLoadedIvoryTower instance;
 
   private ThreadSafeLazyLoadedIvoryTower() {
-    // protect against instantiation via reflection
+    // Protect against instantiation via reflection
     if (instance == null) {
       instance = this;
     } else {
@@ -43,13 +42,16 @@ public final class ThreadSafeLazyLoadedIvoryTower {
   }
 
   /**
-   * The instance gets created only when it is called for first time. Lazy-loading
+   * The instance doesn't get created until the method is called for the first time.
    */
   public static synchronized ThreadSafeLazyLoadedIvoryTower getInstance() {
     if (instance == null) {
-      instance = new ThreadSafeLazyLoadedIvoryTower();
+      synchronized (ThreadSafeLazyLoadedIvoryTower.class) {
+        if (instance == null) {
+          instance = new ThreadSafeLazyLoadedIvoryTower();
+        }
+      }
     }
-
     return instance;
   }
 }

@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,15 +20,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.facade;
 
+import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
  * DwarvenMineWorker is one of the goldmine subsystems.
- *
  */
 public abstract class DwarvenMineWorker {
 
@@ -74,12 +74,10 @@ public abstract class DwarvenMineWorker {
   }
 
   /**
-   * Perform actions
+   * Perform actions.
    */
   public void action(Action... actions) {
-    for (Action action : actions) {
-      action(action);
-    }
+    Arrays.stream(actions).forEach(this::action);
   }
 
   public abstract void work();

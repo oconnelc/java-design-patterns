@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,10 +20,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.data.locality;
 
 
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
  * Test Game Application
@@ -31,10 +34,14 @@ import org.junit.jupiter.api.Test;
 class ApplicationTest {
 
   /**
-   * Test run
+   * Issue: Add at least one assertion to this test case.
+   *
+   * Solution: Inserted assertion to check whether the execution of the main method in {@link Application#main(String[])}
+   * throws an exception.
    */
+
   @Test
-  void main() {
-    Application.main(new String[] {});
+  void shouldExecuteGameApplicationWithoutException() {
+    assertDoesNotThrow(() -> Application.main(new String[] {}));
   }
 }

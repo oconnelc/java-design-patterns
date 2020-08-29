@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,30 +20,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.object.pool;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Generic object pool
+ * Generic object pool.
+ *
  * @param <T> Type T of Object in the Pool
  */
 public abstract class ObjectPool<T> {
 
-  private Set<T> available = new HashSet<>();
-  private Set<T> inUse = new HashSet<>();
+  private final Set<T> available = new HashSet<>();
+  private final Set<T> inUse = new HashSet<>();
 
   protected abstract T create();
 
   /**
-   * Checkout object from pool
+   * Checkout object from pool.
    */
   public synchronized T checkOut() {
     if (available.isEmpty()) {
       available.add(create());
     }
-    T instance = available.iterator().next();
+    var instance = available.iterator().next();
     available.remove(instance);
     inUse.add(instance);
     return instance;

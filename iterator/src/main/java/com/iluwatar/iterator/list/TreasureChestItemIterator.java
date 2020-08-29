@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,24 +20,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.iterator.list;
 
 import com.iluwatar.iterator.Iterator;
-import java.util.List;
 
 /**
- *
- * TreasureChestItemIterator
- *
+ * TreasureChestItemIterator.
  */
 public class TreasureChestItemIterator implements Iterator<Item> {
 
-  private TreasureChest chest;
+  private final TreasureChest chest;
   private int idx;
-  private ItemType type;
+  private final ItemType type;
 
   /**
-   * Constructor
+   * Constructor.
    */
   public TreasureChestItemIterator(TreasureChest chest, ItemType type) {
     this.chest = chest;
@@ -60,10 +58,9 @@ public class TreasureChestItemIterator implements Iterator<Item> {
   }
 
   private int findNextIdx() {
-    List<Item> items = chest.getItems();
-    boolean found = false;
-    int tempIdx = idx;
-    while (!found) {
+    var items = chest.getItems();
+    var tempIdx = idx;
+    while (true) {
       tempIdx++;
       if (tempIdx >= items.size()) {
         tempIdx = -1;

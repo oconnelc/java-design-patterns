@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.leaderelection.ring;
 
 import com.iluwatar.leaderelection.AbstractInstance;
@@ -40,11 +41,11 @@ public class RingInstanceTest {
   @Test
   public void testOnMessage() {
     try {
-      final RingInstance ringInstance = new RingInstance(null, 1, 1);
-      Message ringMessage = new Message(MessageType.HEARTBEAT, "");
+      final var ringInstance = new RingInstance(null, 1, 1);
+      var ringMessage = new Message(MessageType.HEARTBEAT, "");
       ringInstance.onMessage(ringMessage);
-      Class ringInstanceClass = AbstractInstance.class;
-      Field messageQueueField = ringInstanceClass.getDeclaredField("messageQueue");
+      var ringInstanceClass = AbstractInstance.class;
+      var messageQueueField = ringInstanceClass.getDeclaredField("messageQueue");
       messageQueueField.setAccessible(true);
       assertEquals(ringMessage, ((Queue<Message>) messageQueueField.get(ringInstance)).poll());
     } catch (IllegalAccessException | NoSuchFieldException e) {
@@ -55,9 +56,9 @@ public class RingInstanceTest {
   @Test
   public void testIsAlive() {
     try {
-      final RingInstance ringInstance = new RingInstance(null, 1, 1);
-      Class ringInstanceClass = AbstractInstance.class;
-      Field aliveField = ringInstanceClass.getDeclaredField("alive");
+      final var ringInstance = new RingInstance(null, 1, 1);
+      var ringInstanceClass = AbstractInstance.class;
+      var aliveField = ringInstanceClass.getDeclaredField("alive");
       aliveField.setAccessible(true);
       aliveField.set(ringInstance, false);
       assertFalse(ringInstance.isAlive());
@@ -68,7 +69,7 @@ public class RingInstanceTest {
 
   @Test
   public void testSetAlive() {
-    final RingInstance ringInstance = new RingInstance(null, 1, 1);
+    final var ringInstance = new RingInstance(null, 1, 1);
     ringInstance.setAlive(false);
     assertFalse(ringInstance.isAlive());
   }

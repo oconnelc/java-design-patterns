@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,18 +20,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.flux.action;
 
 /**
- * 
  * Menu items.
- *
  */
 public enum MenuItem {
 
   HOME("Home"), PRODUCTS("Products"), COMPANY("Company");
 
-  private String title;
+  private final String title;
 
   MenuItem(String title) {
     this.title = title;

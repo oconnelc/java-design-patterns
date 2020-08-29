@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,14 +20,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.databus.members;
 
 import com.iluwatar.databus.DataType;
 import com.iluwatar.databus.Member;
 import com.iluwatar.databus.data.MessageData;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -42,7 +41,7 @@ public class MessageCollectorMember implements Member {
 
   private final String name;
 
-  private List<String> messages = new ArrayList<>();
+  private final List<String> messages = new ArrayList<>();
 
   public MessageCollectorMember(String name) {
     this.name = name;
@@ -61,6 +60,6 @@ public class MessageCollectorMember implements Member {
   }
 
   public List<String> getMessages() {
-    return Collections.unmodifiableList(messages);
+    return List.copyOf(messages);
   }
 }

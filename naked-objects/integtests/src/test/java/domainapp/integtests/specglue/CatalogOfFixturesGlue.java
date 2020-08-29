@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,12 +20,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package domainapp.integtests.specglue;
 
-import org.apache.isis.core.specsupport.specs.CukeGlueAbstract;
+package domainapp.integtests.specglue;
 
 import cucumber.api.java.Before;
 import domainapp.fixture.scenarios.RecreateSimpleObjects;
+import org.apache.isis.core.specsupport.specs.CukeGlueAbstract;
 
 /**
  * Test Execution to append a fixture of SimpleObjects
@@ -33,7 +33,7 @@ import domainapp.fixture.scenarios.RecreateSimpleObjects;
 public class CatalogOfFixturesGlue extends CukeGlueAbstract {
 
   @Before(value = {"@integration", "@SimpleObjectsFixture"}, order = 20000)
-  public void integrationFixtures() throws Throwable {
+  public void integrationFixtures() {
     scenarioExecution().install(new RecreateSimpleObjects());
   }
 }

@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package domainapp.dom.modules.simple;
 
 import static org.junit.Assert.assertEquals;
@@ -36,12 +37,12 @@ public class SimpleObjectTest {
   SimpleObject simpleObject;
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     simpleObject = new SimpleObject();
   }
   
   @Test
-  public void testName() throws Exception {
+  public void testName() {
     // given
     String name = "Foobar";
     assertNull(simpleObject.getName());

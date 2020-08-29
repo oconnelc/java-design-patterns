@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,20 +20,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.intercepting.filter;
 
 /**
- * Concrete implementation of filter This checks for the deposit code
- * 
- * @author joshzambales
+ * Concrete implementation of filter This checks for the deposit code.
  *
+ * @author joshzambales
  */
 public class DepositFilter extends AbstractFilter {
 
   @Override
   public String execute(Order order) {
-    String result = super.execute(order);
-    if (order.getDepositNumber() == null || order.getDepositNumber().isEmpty()) {
+    var result = super.execute(order);
+    var depositNumber = order.getDepositNumber();
+    if (depositNumber == null || depositNumber.isEmpty()) {
       return result + "Invalid deposit number! ";
     } else {
       return result;

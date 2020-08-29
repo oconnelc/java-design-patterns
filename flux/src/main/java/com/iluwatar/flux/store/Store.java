@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,22 +20,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.flux.store;
 
-import java.util.LinkedList;
-import java.util.List;
+package com.iluwatar.flux.store;
 
 import com.iluwatar.flux.action.Action;
 import com.iluwatar.flux.view.View;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
- * 
  * Store is a data model.
- *
  */
 public abstract class Store {
 
-  private List<View> views = new LinkedList<>();
+  private final List<View> views = new LinkedList<>();
 
   public abstract void onAction(Action action);
 
@@ -44,6 +42,6 @@ public abstract class Store {
   }
 
   protected void notifyChange() {
-    views.stream().forEach(view -> view.storeChanged(this));
+    views.forEach(view -> view.storeChanged(this));
   }
 }

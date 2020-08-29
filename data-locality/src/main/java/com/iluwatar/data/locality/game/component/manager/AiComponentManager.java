@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,15 +20,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.data.locality.game.component.manager;
 
 import com.iluwatar.data.locality.game.component.AiComponent;
 import com.iluwatar.data.locality.game.component.Component;
+import java.util.stream.IntStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * AI component manager for Game
+ * AI component manager for Game.
  */
 public class AiComponentManager {
 
@@ -38,31 +40,27 @@ public class AiComponentManager {
 
   private final int numEntities;
 
-  private static final Component[] AI_COMPONENTS = new AiComponent[MAX_ENTITIES];
+  private final Component[] aiComponents = new AiComponent[MAX_ENTITIES];
 
   public AiComponentManager(int numEntities) {
     this.numEntities = numEntities;
   }
 
   /**
-   * start AI component of Game
+   * start AI component of Game.
    */
   public void start() {
     LOGGER.info("Start AI Game Component");
-    for (int i = 0; i < numEntities; i++) {
-      AI_COMPONENTS[i] = new AiComponent();
-    }
+    IntStream.range(0, numEntities).forEach(i -> aiComponents[i] = new AiComponent());
   }
 
   /**
-   * Update AI component of Game
+   * Update AI component of Game.
    */
   public void update() {
     LOGGER.info("Update AI Game Component");
-    for (int i = 0; i < numEntities; i++) {
-      if (AI_COMPONENTS.length > i && AI_COMPONENTS[i] != null) {
-        AI_COMPONENTS[i].update();
-      }
-    }
+    IntStream.range(0, numEntities)
+        .filter(i -> aiComponents.length > i && aiComponents[i] != null)
+        .forEach(i -> aiComponents[i].update());
   }
 }

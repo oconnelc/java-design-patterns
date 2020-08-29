@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,17 +20,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.iterator.list;
 
 /**
- * 
- * Item
- *
+ * Item.
  */
 public class Item {
 
   private ItemType type;
-  private String name;
+  private final String name;
 
   public Item(ItemType type, String name) {
     this.setType(type);

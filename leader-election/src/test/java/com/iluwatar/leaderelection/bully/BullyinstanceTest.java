@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.leaderelection.bully;
 
 import com.iluwatar.leaderelection.AbstractInstance;
@@ -40,11 +41,11 @@ public class BullyinstanceTest {
   @Test
   public void testOnMessage() {
     try {
-      final BullyInstance bullyInstance = new BullyInstance(null, 1, 1);
-      Message bullyMessage = new Message(MessageType.HEARTBEAT, "");
+      final var bullyInstance = new BullyInstance(null, 1, 1);
+      var bullyMessage = new Message(MessageType.HEARTBEAT, "");
       bullyInstance.onMessage(bullyMessage);
-      Class instanceClass = AbstractInstance.class;
-      Field messageQueueField = instanceClass.getDeclaredField("messageQueue");
+      var instanceClass = AbstractInstance.class;
+      var messageQueueField = instanceClass.getDeclaredField("messageQueue");
       messageQueueField.setAccessible(true);
       assertEquals(bullyMessage, ((Queue<Message>) messageQueueField.get(bullyInstance)).poll());
     } catch (IllegalAccessException | NoSuchFieldException e) {
@@ -56,9 +57,9 @@ public class BullyinstanceTest {
   @Test
   public void testIsAlive() {
     try {
-      final BullyInstance bullyInstance = new BullyInstance(null, 1, 1);
-      Class instanceClass = AbstractInstance.class;
-      Field aliveField = instanceClass.getDeclaredField("alive");
+      final var bullyInstance = new BullyInstance(null, 1, 1);
+      var instanceClass = AbstractInstance.class;
+      var aliveField = instanceClass.getDeclaredField("alive");
       aliveField.setAccessible(true);
       aliveField.set(bullyInstance, false);
       assertFalse(bullyInstance.isAlive());
@@ -69,7 +70,7 @@ public class BullyinstanceTest {
 
   @Test
   public void testSetAlive() {
-    final BullyInstance bullyInstance = new BullyInstance(null, 1, 1);
+    final var bullyInstance = new BullyInstance(null, 1, 1);
     bullyInstance.setAlive(false);
     assertFalse(bullyInstance.isAlive());
   }

@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,19 +20,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.leaderelection.ring;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 /**
  * RingApp unit test.
  */
-public class RingAppTest {
+class RingAppTest {
 
   @Test
-  public void test() {
-    String[] args = {};
-    RingApp.main(args);
+  void shouldExecuteApplicationWithoutException() {
+    assertDoesNotThrow(() -> RingApp.main(new String[]{}));
   }
 
 }

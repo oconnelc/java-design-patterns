@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.semaphore;
 
 /**
@@ -28,13 +29,13 @@ package com.iluwatar.semaphore;
 public class Fruit {
 
   /**
-   * Enumeration of Fruit Types
+   * Enumeration of Fruit Types.
    */
   public enum FruitType {
     ORANGE, APPLE, LEMON
   }
 
-  private FruitType type;
+  private final FruitType type;
 
   public Fruit(FruitType type) {
     this.type = type;
@@ -45,7 +46,7 @@ public class Fruit {
   }
 
   /**
-   * toString method
+   * toString method.
    */
   public String toString() {
     switch (type) {

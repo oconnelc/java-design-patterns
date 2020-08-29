@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,17 +20,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.interpreter;
 
 /**
- * 
- * MinusExpression
- *
+ * MinusExpression.
  */
 public class MinusExpression extends Expression {
 
-  private Expression leftExpression;
-  private Expression rightExpression;
+  private final Expression leftExpression;
+  private final Expression rightExpression;
 
   public MinusExpression(Expression leftExpression, Expression rightExpression) {
     this.leftExpression = leftExpression;

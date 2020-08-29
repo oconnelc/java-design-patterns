@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,22 +20,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.privateclassdata;
 
 /**
- * 
- * Stew ingredients
- *
+ * Stew ingredients.
  */
 public class StewData {
 
-  private int numPotatoes;
-  private int numCarrots;
-  private int numMeat;
-  private int numPeppers;
+  private final int numPotatoes;
+  private final int numCarrots;
+  private final int numMeat;
+  private final int numPeppers;
 
   /**
-   * Constructor
+   * Constructor.
    */
   public StewData(int numPotatoes, int numCarrots, int numMeat, int numPeppers) {
     this.numPotatoes = numPotatoes;

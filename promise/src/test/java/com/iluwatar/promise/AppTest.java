@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,20 +20,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.promise;
 
+import java.util.concurrent.ExecutionException;
 import org.junit.jupiter.api.Test;
 
-import java.util.concurrent.ExecutionException;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
- * 
  * Application test.
  */
-public class AppTest {
+class AppTest {
 
   @Test
-  public void testApp() throws InterruptedException, ExecutionException {
-    App.main(null);
+  void shouldExecuteApplicationWithoutException() {
+    assertDoesNotThrow(() -> App.main(null));
   }
 }

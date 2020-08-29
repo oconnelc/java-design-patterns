@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,15 +20,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.proxy;
 
-import com.iluwatar.proxy.utils.InMemoryAppender;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+package com.iluwatar.proxy;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import com.iluwatar.proxy.utils.InMemoryAppender;
+import java.util.List;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for {@link IvoryTower}
@@ -48,18 +50,16 @@ public class IvoryTowerTest {
   }
 
   @Test
-  public void testEnter() throws Exception {
-    final Wizard[] wizards = new Wizard[]{
+  public void testEnter() {
+    final var wizards = List.of(
         new Wizard("Gandalf"),
         new Wizard("Dumbledore"),
         new Wizard("Oz"),
         new Wizard("Merlin")
-    };
+    );
 
-    IvoryTower tower = new IvoryTower();
-    for (Wizard wizard : wizards) {
-      tower.enter(wizard);
-    }
+    var tower = new IvoryTower();
+    wizards.forEach(tower::enter);
 
     assertTrue(appender.logContains("Gandalf enters the tower."));
     assertTrue(appender.logContains("Dumbledore enters the tower."));

@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package concreteextensions;
 
 import abstractextensions.SergeantExtension;
@@ -28,13 +29,13 @@ import org.slf4j.LoggerFactory;
 import units.SergeantUnit;
 
 /**
- * Class defining Sergeant
+ * Class defining Sergeant.
  */
 public class Sergeant implements SergeantExtension {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Sergeant.class);
 
-  private SergeantUnit unit;
+  private final SergeantUnit unit;
 
   public Sergeant(SergeantUnit sergeantUnit) {
     this.unit = sergeantUnit;
@@ -42,6 +43,10 @@ public class Sergeant implements SergeantExtension {
 
   @Override
   public void sergeantReady() {
-    LOGGER.info("[Sergeant] " + unit.getName() + " is ready! ");
+    LOGGER.info("[Sergeant] " + unit.getName() + " is ready!");
+  }
+
+  public SergeantUnit getUnit() {
+    return unit;
   }
 }

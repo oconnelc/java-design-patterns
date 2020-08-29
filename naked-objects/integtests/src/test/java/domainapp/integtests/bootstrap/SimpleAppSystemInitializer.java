@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package domainapp.integtests.bootstrap;
 
 import org.apache.isis.core.commons.config.IsisConfiguration;
@@ -39,7 +40,7 @@ public final class SimpleAppSystemInitializer {
    * Init test system
    */
   public static void initIsft() {
-    IsisSystemForTest isft = IsisSystemForTest.getElseNull();
+    var isft = IsisSystemForTest.getElseNull();
     if (isft == null) {
       isft = new SimpleAppSystemBuilder().build().setUpSystem();
       IsisSystemForTest.set(isft);
@@ -57,8 +58,7 @@ public final class SimpleAppSystemInitializer {
     }
 
     private static IsisConfiguration testConfiguration() {
-      final IsisConfigurationForJdoIntegTests testConfiguration =
-          new IsisConfigurationForJdoIntegTests();
+      final var testConfiguration = new IsisConfigurationForJdoIntegTests();
 
       testConfiguration.addRegisterEntitiesPackagePrefix("domainapp.dom.modules");
       return testConfiguration;

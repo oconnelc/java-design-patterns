@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,9 +20,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.hamcrest.CoreMatchers.instanceOf;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Thief test
@@ -30,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class ThiefTest {
   @Test
   public void testThief() {
-    Thief thief = new Thief();
-    assertFalse(thief instanceof Permission);
+    var thief = new Thief();
+    assertThat(thief, not(instanceOf(Permission.class)));
   }
 }

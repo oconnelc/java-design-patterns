@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,14 +20,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.producer.consumer;
 
-import org.junit.jupiter.api.Test;
+package com.iluwatar.producer.consumer;
 
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Date: 12/27/15 - 11:01 PM
@@ -40,15 +41,15 @@ public class ConsumerTest {
 
   @Test
   public void testConsume() throws Exception {
-    final ItemQueue queue = spy(new ItemQueue());
-    for (int id = 0; id < ITEM_COUNT; id++) {
+    final var queue = spy(new ItemQueue());
+    for (var id = 0; id < ITEM_COUNT; id++) {
       queue.put(new Item("producer", id));
     }
 
     reset(queue); // Don't count the preparation above as interactions with the queue
-    final Consumer consumer = new Consumer("consumer", queue);
+    final var consumer = new Consumer("consumer", queue);
 
-    for (int id = 0; id < ITEM_COUNT; id++) {
+    for (var id = 0; id < ITEM_COUNT; id++) {
       consumer.consume();
     }
 

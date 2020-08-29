@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,17 +20,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.serverless.faas.api;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.mockito.runners.MockitoJUnitRunner;
+package com.iluwatar.serverless.faas.api;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 
 /**
  * Unit tests for LambdaInfoApiHandler
@@ -40,8 +41,8 @@ public class LambdaInfoApiHandlerTest {
 
   @Test
   public void handleRequestWithMockContext() {
-    LambdaInfoApiHandler lambdaInfoApiHandler = new LambdaInfoApiHandler();
-    Context context = mock(Context.class);
+    var lambdaInfoApiHandler = new LambdaInfoApiHandler();
+    var context = mock(Context.class);
     when(context.getAwsRequestId()).thenReturn("mock aws request id");
 
     assertThat(lambdaInfoApiHandler.handleRequest(null, context), notNullValue());

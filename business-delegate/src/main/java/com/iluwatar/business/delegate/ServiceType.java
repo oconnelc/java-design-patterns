@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,14 +20,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.business.delegate;
 
 /**
- * 
- * Enumeration for service types
- *
+ * Enumeration for service types.
  */
 public enum ServiceType {
 
-  EJB, JMS;
+  EJB, JMS
 }

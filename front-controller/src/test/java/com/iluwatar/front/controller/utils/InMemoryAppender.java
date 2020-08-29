@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.front.controller.utils;
 
 import ch.qos.logback.classic.Logger;
@@ -35,7 +36,7 @@ import java.util.List;
  */
 public class InMemoryAppender extends AppenderBase<ILoggingEvent> {
 
-  private List<ILoggingEvent> log = new LinkedList<>();
+  private final List<ILoggingEvent> log = new LinkedList<>();
 
   public InMemoryAppender() {
     ((Logger) LoggerFactory.getLogger("root")).addAppender(this);

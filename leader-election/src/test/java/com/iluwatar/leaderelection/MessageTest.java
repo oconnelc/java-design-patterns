@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.leaderelection;
 
 import org.junit.jupiter.api.Test;
@@ -33,14 +34,14 @@ public class MessageTest {
 
   @Test
   public void testGetType() {
-    Message message = new Message(MessageType.HEARTBEAT, "");
+    var message = new Message(MessageType.HEARTBEAT, "");
     assertEquals(MessageType.HEARTBEAT, message.getType());
   }
 
   @Test
   public void testGetContent() {
-    String content = "test";
-    Message message = new Message(MessageType.HEARTBEAT, content);
+    var content = "test";
+    var message = new Message(MessageType.HEARTBEAT, content);
     assertEquals(content, message.getContent());
   }
 

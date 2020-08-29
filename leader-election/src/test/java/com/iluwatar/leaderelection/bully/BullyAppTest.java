@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,19 +20,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.leaderelection.bully;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 /**
  * BullyApp unit test.
  */
-public class BullyAppTest {
+class BullyAppTest {
 
   @Test
-  public void test() {
-    String[] args = {};
-    BullyApp.main(args);
+  void shouldExecuteApplicationWithoutException() {
+    assertDoesNotThrow(() -> BullyApp.main(new String[]{}));
   }
 
 }

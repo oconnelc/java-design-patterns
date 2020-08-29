@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,22 +20,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.prototype;
 
 /**
- * 
- * OrcWarlord
- *
+ * OrcWarlord.
  */
 public class OrcWarlord extends Warlord {
 
-  private String weapon;
+  private final String weapon;
 
   public OrcWarlord(String weapon) {
     this.weapon = weapon;
   }
-  
+
   public OrcWarlord(OrcWarlord orcWarlord) {
+    super(orcWarlord);
     this.weapon = orcWarlord.weapon;
   }
 
@@ -49,4 +49,21 @@ public class OrcWarlord extends Warlord {
     return "Orcish warlord attacks with " + weapon;
   }
 
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (!super.equals(obj)) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    var other = (OrcWarlord) obj;
+    if (weapon == null) {
+      return other.weapon == null;
+    }
+    return weapon.equals(other.weapon);
+  }
 }

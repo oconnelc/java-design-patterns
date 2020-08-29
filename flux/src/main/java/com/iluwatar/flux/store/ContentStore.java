@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.flux.store;
 
 import com.iluwatar.flux.action.Action;
@@ -28,9 +29,7 @@ import com.iluwatar.flux.action.Content;
 import com.iluwatar.flux.action.ContentAction;
 
 /**
- * 
  * ContentStore is a concrete store.
- *
  */
 public class ContentStore extends Store {
 
@@ -39,7 +38,7 @@ public class ContentStore extends Store {
   @Override
   public void onAction(Action action) {
     if (action.getType().equals(ActionType.CONTENT_CHANGED)) {
-      ContentAction contentAction = (ContentAction) action;
+      var contentAction = (ContentAction) action;
       content = contentAction.getContent();
       notifyChange();
     }

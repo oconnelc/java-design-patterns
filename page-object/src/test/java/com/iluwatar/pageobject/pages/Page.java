@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.pageobject.pages;
 
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -30,8 +31,7 @@ import com.gargoylesoftware.htmlunit.WebClient;
 public abstract class Page {
 
   /**
-   * Application Under Test path
-   * This directory location is where html web pages are located
+   * Application Under Test path This directory location is where html web pages are located
    */
   public static final String AUT_PATH = "src/main/resources/sample-ui/";
 

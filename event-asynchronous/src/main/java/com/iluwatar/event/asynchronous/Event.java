@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,31 +20,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.event.asynchronous;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *
  * Each Event runs as a separate/individual thread.
- *
  */
 public class Event implements IEvent, Runnable {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Event.class);
 
-  private int eventId;
-  private int eventTime;
-  private boolean isSynchronous;
+  private final int eventId;
+  private final int eventTime;
+  private final boolean isSynchronous;
   private Thread thread;
   private boolean isComplete = false;
   private ThreadCompleteListener eventListener;
 
   /**
+   * Constructor.
    *
-   * @param eventId event ID
-   * @param eventTime event time
+   * @param eventId       event ID
+   * @param eventTime     event time
    * @param isSynchronous is of synchronous type
    */
   public Event(final int eventId, final int eventTime, final boolean isSynchronous) {
@@ -82,8 +82,8 @@ public class Event implements IEvent, Runnable {
 
   @Override
   public void run() {
-    long currentTime = System.currentTimeMillis();
-    long endTime = currentTime + (eventTime * 1000);
+    var currentTime = System.currentTimeMillis();
+    var endTime = currentTime + (eventTime * 1000);
     while (System.currentTimeMillis() < endTime) {
       try {
         Thread.sleep(1000); // Sleep for 1 second.

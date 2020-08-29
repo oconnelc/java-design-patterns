@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,18 +20,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.command;
 
 /**
- *
  * Enumeration for target size.
- *
  */
 public enum Size {
 
   SMALL("small"), NORMAL("normal");
 
-  private String title;
+  private final String title;
 
   Size(String title) {
     this.title = title;

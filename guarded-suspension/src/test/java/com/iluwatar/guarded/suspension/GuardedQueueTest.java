@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,15 +20,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.guarded.suspension;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test for Guarded Queue
@@ -38,8 +37,8 @@ public class GuardedQueueTest {
 
   @Test
   public void testGet() {
-    GuardedQueue g = new GuardedQueue();
-    ExecutorService executorService = Executors.newFixedThreadPool(2);
+    var g = new GuardedQueue();
+    var executorService = Executors.newFixedThreadPool(2);
     executorService.submit(() -> value = g.get());
     executorService.submit(() -> g.put(10));
     executorService.shutdown();
@@ -53,7 +52,7 @@ public class GuardedQueueTest {
 
   @Test
   public void testPut() {
-    GuardedQueue g = new GuardedQueue();
+    var g = new GuardedQueue();
     g.put(12);
     assertEquals(Integer.valueOf(12), g.get());
   }

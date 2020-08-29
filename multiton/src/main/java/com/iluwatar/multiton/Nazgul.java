@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,21 +20,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.multiton;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 
  * Nazgul is a Multiton class. Nazgul instances can be queried using {@link #getInstance} method.
- *
  */
 public final class Nazgul {
 
-  private static Map<NazgulName, Nazgul> nazguls;
+  private static final Map<NazgulName, Nazgul> nazguls;
 
-  private NazgulName name;
+  private final NazgulName name;
 
   static {
     nazguls = new ConcurrentHashMap<>();

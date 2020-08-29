@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.multiton;
 
 import org.junit.jupiter.api.Test;
@@ -40,8 +41,8 @@ public class NazgulTest {
    */
   @Test
   public void testGetInstance() {
-    for (final NazgulName name : NazgulName.values()) {
-      final Nazgul nazgul = Nazgul.getInstance(name);
+    for (final var name : NazgulName.values()) {
+      final var nazgul = Nazgul.getInstance(name);
       assertNotNull(nazgul);
       assertSame(nazgul, Nazgul.getInstance(name));
       assertEquals(name, nazgul.getName());

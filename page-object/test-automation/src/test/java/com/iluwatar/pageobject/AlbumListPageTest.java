@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,22 +20,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.pageobject;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.iluwatar.pageobject.AlbumListPage;
-import com.iluwatar.pageobject.AlbumPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test Album Selection and Album Listing
  */
 public class AlbumListPageTest {
 
-  private AlbumListPage albumListPage = new AlbumListPage(new WebClient());
+  private final AlbumListPage albumListPage = new AlbumListPage(new WebClient());
 
   @BeforeEach
   public void setUp() {
@@ -44,7 +43,7 @@ public class AlbumListPageTest {
 
   @Test
   public void testSelectAlbum() {
-    AlbumPage albumPage = albumListPage.selectAlbum("21");
+    var albumPage = albumListPage.selectAlbum("21");
     albumPage.navigateToPage();
     assertTrue(albumPage.isAt());
   }

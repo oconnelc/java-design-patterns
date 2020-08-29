@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,18 +20,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.specification.property;
 
 /**
- * 
  * Color property.
- *
  */
 public enum Color {
 
   DARK("dark"), LIGHT("light"), GREEN("green"), RED("red");
 
-  private String title;
+  private final String title;
 
   Color(String title) {
     this.title = title;

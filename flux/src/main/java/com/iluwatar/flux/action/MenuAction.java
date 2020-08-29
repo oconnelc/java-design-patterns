@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,17 +20,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.flux.action;
 
 
 /**
- * 
  * MenuAction is a concrete action.
- *
  */
 public class MenuAction extends Action {
 
-  private MenuItem menuItem;
+  private final MenuItem menuItem;
 
   public MenuAction(MenuItem menuItem) {
     super(ActionType.MENU_ITEM_SELECTED);

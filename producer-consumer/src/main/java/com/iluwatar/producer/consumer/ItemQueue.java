@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.producer.consumer;
 
 import java.util.concurrent.BlockingQueue;
@@ -30,7 +31,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class ItemQueue {
 
-  private BlockingQueue<Item> queue;
+  private final BlockingQueue<Item> queue;
 
   public ItemQueue() {
 

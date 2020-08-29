@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,19 +20,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.monad;
 
 /**
- * User Definition
+ * User Definition.
  */
 public class User {
 
-  private String name;
-  private int age;
-  private Sex sex;
-  private String email;
+  private final String name;
+  private final int age;
+  private final Sex sex;
+  private final String email;
 
   /**
+   * Constructor.
+   *
    * @param name  - name
    * @param age   - age
    * @param sex   - sex

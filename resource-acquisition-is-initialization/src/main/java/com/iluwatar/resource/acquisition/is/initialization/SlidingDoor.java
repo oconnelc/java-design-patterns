@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,15 +20,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.resource.acquisition.is.initialization;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
- * SlidingDoor resource
- *
+ * SlidingDoor resource.
  */
 public class SlidingDoor implements AutoCloseable {
 
@@ -39,7 +38,7 @@ public class SlidingDoor implements AutoCloseable {
   }
 
   @Override
-  public void close() throws Exception {
+  public void close() {
     LOGGER.info("Sliding door closes.");
   }
 }

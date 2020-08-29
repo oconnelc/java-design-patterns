@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.observer;
 
 import com.iluwatar.observer.utils.InMemoryAppender;
@@ -79,7 +80,7 @@ public abstract class WeatherObserverTest<O extends WeatherObserver> {
   @ParameterizedTest
   @MethodSource("dataProvider")
   public void testObserver(WeatherType weather, String response) {
-    final O observer = this.factory.get();
+    final var observer = this.factory.get();
     assertEquals(0, appender.getLogSize());
 
     observer.update(weather);

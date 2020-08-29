@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,13 +20,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.retry;
 
-import org.junit.jupiter.api.Test;
+package com.iluwatar.retry;
 
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for {@link Retry}.
@@ -39,10 +40,11 @@ public class RetryTest {
    */
   @Test
   public void errors() {
-    final BusinessException e = new BusinessException("unhandled");
-    final Retry<String> retry = new Retry<>(
+    final var e = new BusinessException("unhandled");
+    final var retry = new Retry<String>(
         () -> {
-          throw e; },
+          throw e;
+        },
         2,
         0
     );
@@ -52,10 +54,7 @@ public class RetryTest {
       //ignore
     }
 
-    assertThat(
-        retry.errors(),
-        hasItem(e)
-    );
+    assertThat(retry.errors(), hasItem(e));
   }
 
   /**
@@ -64,10 +63,11 @@ public class RetryTest {
    */
   @Test
   public void attempts() {
-    final BusinessException e = new BusinessException("unhandled");
-    final Retry<String> retry = new Retry<>(
+    final var e = new BusinessException("unhandled");
+    final var retry = new Retry<String>(
         () -> {
-          throw e; },
+          throw e;
+        },
         2,
         0
     );
@@ -77,22 +77,20 @@ public class RetryTest {
       //ignore
     }
 
-    assertThat(
-        retry.attempts(),
-        is(1)
-    );
+    assertThat(retry.attempts(), is(1));
   }
 
   /**
-   * Final number of attempts should be equal to the number of attempts asked because we are 
-   * asking it to ignore the exception that will be thrown.
+   * Final number of attempts should be equal to the number of attempts asked because we are asking
+   * it to ignore the exception that will be thrown.
    */
   @Test
-  public void ignore() throws Exception {
-    final BusinessException e = new CustomerNotFoundException("customer not found");
-    final Retry<String> retry = new Retry<>(
+  public void ignore() {
+    final var e = new CustomerNotFoundException("customer not found");
+    final var retry = new Retry<String>(
         () -> {
-          throw e; },
+          throw e;
+        },
         2,
         0,
         ex -> CustomerNotFoundException.class.isAssignableFrom(ex.getClass())
@@ -103,10 +101,7 @@ public class RetryTest {
       //ignore
     }
 
-    assertThat(
-        retry.attempts(),
-        is(2)
-    );
+    assertThat(retry.attempts(), is(2));
   }
 
 }

@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,11 +20,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.model.view.presenter;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertNull;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Date: 12/21/15 - 12:12 PM
@@ -34,8 +35,8 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class FileLoaderTest {
 
   @Test
-  public void testLoadData() throws Exception {
-    final FileLoader fileLoader = new FileLoader();
+  public void testLoadData() {
+    final var fileLoader = new FileLoader();
     fileLoader.setFileName("non-existing-file");
     assertNull(fileLoader.loadData());
   }

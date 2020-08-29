@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
@@ -32,7 +33,7 @@ public class GuardTest {
 
   @Test
   public void testGuard() {
-    Guard guard = new Guard();
+    var guard = new Guard();
     assertThat(guard, instanceOf(Permission.class));
   }
 }

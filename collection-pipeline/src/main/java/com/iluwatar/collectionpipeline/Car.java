@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.collectionpipeline;
 
 /**
@@ -33,10 +34,11 @@ public class Car {
 
   /**
    * Constructor to create an instance of car.
-   * @param make the make of the car
-   * @param model the model of the car
+   *
+   * @param make       the make of the car
+   * @param model      the model of the car
    * @param yearOfMake the year of built of the car
-   * @param category the {@link Category} of the car
+   * @param category   the {@link Category} of the car
    */
   public Car(String make, String model, int yearOfMake, Category category) {
     this.make = make;
@@ -85,10 +87,7 @@ public class Car {
     } else if (!model.equals(other.model)) {
       return false;
     }
-    if (year != other.year) {
-      return false;
-    }
-    return true;
+    return year == other.year;
   }
 
   public String getMake() {
@@ -102,7 +101,7 @@ public class Car {
   public int getYear() {
     return year;
   }
-  
+
   public Category getCategory() {
     return category;
   }

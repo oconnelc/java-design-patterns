@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,22 +20,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.iluwatar.hexagonal.banking;
 
-import org.junit.jupiter.api.Test;
+package com.iluwatar.hexagonal.banking;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * 
  * Tests for banking
- *
  */
 class InMemoryBankTest {
 
   private final WireTransfers bank = new InMemoryBank();
-  
+
   @Test
   void testInit() {
     assertEquals(0, bank.getFunds("foo"));

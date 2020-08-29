@@ -1,4 +1,4 @@
-/**
+/*
  * The MIT License
  * Copyright © 2014-2019 Ilkka Seppälä
  *
@@ -20,13 +20,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 package com.iluwatar.servant;
 
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Date: 12/28/15 - 9:52 PM
@@ -37,34 +38,34 @@ public class QueenTest {
 
   @Test
   public void testNotFlirtyUncomplemented() {
-    final Queen queen = new Queen();
+    final var queen = new Queen();
     queen.setFlirtiness(false);
     queen.changeMood();
     assertFalse(queen.getMood());
   }
-  
+
   @Test
   public void testNotFlirtyComplemented() {
-    final Queen queen = new Queen();
+    final var queen = new Queen();
     queen.setFlirtiness(false);
     queen.receiveCompliments();
     queen.changeMood();
     assertFalse(queen.getMood());
   }
-  
+
   @Test
   public void testFlirtyUncomplemented() {
-    final Queen queen = new Queen();
+    final var queen = new Queen();
     queen.changeMood();
     assertFalse(queen.getMood());
   }
-  
+
   @Test
   public void testFlirtyComplemented() {
-    final Queen queen = new Queen();
+    final var queen = new Queen();
     queen.receiveCompliments();
     queen.changeMood();
     assertTrue(queen.getMood());
   }
-  
+
 }
